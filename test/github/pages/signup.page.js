@@ -16,7 +16,7 @@ class SignupPage {
     }
 
     async openPage() {
-        await browser.url(this._pageUrl);
+        await this.openUrl(this._pageUrl);
     }
 
     async focusFieldAndEnterValue({ field, value }) {

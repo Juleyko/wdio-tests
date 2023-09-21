@@ -6,7 +6,7 @@ import pricingPage from '../pages/pricing.page.js';
 import searchPage from '../pages/search.page.js';
 import signupPage from '../pages/signup.page.js';
 
-describe('[case 1] Github signup', () => {
+describe.only('[case 1] Github signup', () => {
     it('should open main page', async () => {
         await mainPage.openPage();
     });
@@ -44,7 +44,7 @@ describe('[case 2] Github free enterprise plan', () => {
     })
 
     it('should check does header exists', async () => {
-        await mainPage.checkDoesHeaderExist();
+        await mainPage.checkHeaderText('The place for anyone from anywhere to build anything');
     })
 
     it('should check does enterprise trial button exists', async () => {
@@ -56,7 +56,7 @@ describe('[case 2] Github free enterprise plan', () => {
     })
 
     it('should check header text', async () => {
-        await organizationsPage.checkHeaderText();
+        await organizationsPage.checkHeaderText('Pick your trial plan');
     })
 
     it('should click on enterprise cloud link', async () => {

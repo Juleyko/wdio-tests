@@ -1,5 +1,8 @@
-class NewsletterPage {
+import { Page } from "./Page.js"
+
+class NewsletterPage extends Page {
     constructor() {
+        super()
         this.pageUrl = 'https://resources.github.com/newsletter/'
     }
 
@@ -36,7 +39,8 @@ class NewsletterPage {
     }
 
     async checkHeaderText(text) {
-        expect(this.pageHeader).toHaveText(text)
+        // expect(this.pageHeader).toHaveText(text)
+        await this.checkElementText(this.pageHeader, text)
     }
 
     async setEmail(email) {

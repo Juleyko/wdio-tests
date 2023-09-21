@@ -1,4 +1,6 @@
-class ConfirmationPage {
+import { Page } from "./Page.js"
+
+class ConfirmationPage extends Page {
     get pageHeader() {
         return $('#hero-section-brand-heading')
     }
@@ -8,7 +10,7 @@ class ConfirmationPage {
             return this.pageHeader.isDisplayed()
         })
 
-        expect(this.pageHeader).toHaveText(text)
+        await this.checkElementText(this.pageHeader, text);
     }
 }
 

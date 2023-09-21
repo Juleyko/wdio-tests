@@ -1,5 +1,8 @@
-class MainPage {
+import { Page } from "./Page.js";
+
+class MainPage extends Page {
     constructor() {
+        super();
         this._pageUrl = 'https://github.com';
     }
 
@@ -36,23 +39,25 @@ class MainPage {
     }
 
     async openPage() {
-        await browser.url(this._pageUrl);
+        // await browser.url(this._pageUrl);
+        await this.openUrl(this._pageUrl)
     }
 
     async clickOnSignUpBtn() {
-        await this.signupButton.waitUntil(async () => {
-            return this.signupButton.isClickable()
-        })
-
-        await this.signupButton.click()
+        // await this.signupButton.waitUntil(async () => {
+            // return this.signupButton.isClickable()
+        // })
+        // await this.signupButton.click()
+        await this.waitForClickableAndClick(this.signupButton)
     }
 
     async scrollToSignupBlock() {
-        await this.signupBlock.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        await this.scrollToElement(this.signupBlock)
     }
 
-    async checkDoesHeaderExist() {
-        await expect(this.header).toHaveText('The place for anyone from anywhere to build anything')
+    async checkHeaderText(text) {
+        // await expect(this.header).toHaveText('The place for anyone from anywhere to build anything')
+        await this.checkElementText(this.header, text)
     }
 
     async checkDoesEnterpriseTrialButtonIsVisible() {
@@ -68,7 +73,8 @@ class MainPage {
     }
 
     async scrollToSubscribeButton() {
-        await this.subscribeButton.scrollIntoView({ behavior: 'smooth', block: 'center' })
+        // await this.subscribeButton.scrollIntoView({ behavior: 'smooth', block: 'center' })
+        await this.scrollToElement(this.subscribeButton)
     }
 
     async clickOnSubscribeButton() {
