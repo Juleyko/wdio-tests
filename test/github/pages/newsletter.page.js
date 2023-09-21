@@ -39,7 +39,6 @@ class NewsletterPage extends Page {
     }
 
     async checkHeaderText(text) {
-        // expect(this.pageHeader).toHaveText(text)
         await this.checkElementText(this.pageHeader, text)
     }
 
@@ -58,11 +57,11 @@ class NewsletterPage extends Page {
     }
 
     async checkMarketingAgreementCheckbox() {
-        this.marketingAgreementCheckbox.click();
+        await this.waitForClickableAndClick(this.marketingAgreementCheckbox)
     }
 
     async clickSubscribeButton() {
-        this.subcribeButton.click();
+        await this.waitForClickableAndClick(this.subcribeButton)
     }
 }
 

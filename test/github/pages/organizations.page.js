@@ -10,16 +10,11 @@ class OrganizationsPage extends Page {
     }
 
     async checkHeaderText(text) {
-        // await expect(this.pageHeader).toHaveText('Pick your trial plan')
         await this.checkElementText(this.pageHeader, text)
     }
 
     async clickOnEnterpriseCloudLink() {
-        await browser.waitUntil(async () => {
-            return this.enterpriseCloundLink.isClickable()
-        })
-
-        await this.enterpriseCloundLink.click()
+        await this.waitForClickableAndClick(this.enterpriseCloundLink)
     }
 }
 

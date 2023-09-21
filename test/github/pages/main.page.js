@@ -39,15 +39,10 @@ class MainPage extends Page {
     }
 
     async openPage() {
-        // await browser.url(this._pageUrl);
         await this.openUrl(this._pageUrl)
     }
 
     async clickOnSignUpBtn() {
-        // await this.signupButton.waitUntil(async () => {
-            // return this.signupButton.isClickable()
-        // })
-        // await this.signupButton.click()
         await this.waitForClickableAndClick(this.signupButton)
     }
 
@@ -56,7 +51,6 @@ class MainPage extends Page {
     }
 
     async checkHeaderText(text) {
-        // await expect(this.header).toHaveText('The place for anyone from anywhere to build anything')
         await this.checkElementText(this.header, text)
     }
 
@@ -65,7 +59,7 @@ class MainPage extends Page {
     }
 
     async clickOnEnterpriseTrialButton() {
-        await this.enterpriseTrialButton.click();
+        await this.waitForClickableAndClick(this.enterpriseTrialButton);
     }
 
     async checkDoesSubscribeButtonExists() {
@@ -73,24 +67,15 @@ class MainPage extends Page {
     }
 
     async scrollToSubscribeButton() {
-        // await this.subscribeButton.scrollIntoView({ behavior: 'smooth', block: 'center' })
         await this.scrollToElement(this.subscribeButton)
     }
 
     async clickOnSubscribeButton() {
-        await browser.waitUntil(async () => {
-            return this.subscribeButton.isDisplayed()
-        })
-
-        await this.subscribeButton.click()
+        await this.waitForClickableAndClick(this.subscribeButton)
     }
 
     async clickOnSearchButton() {
-        await browser.waitUntil(async () => {
-            return this.openSearchButton.isClickable()
-        })
-
-        this.openSearchButton.click();
+        await this.waitForClickableAndClick(this.openSearchButton)
     }
 
     async searchByTerm(term) {
@@ -104,11 +89,7 @@ class MainPage extends Page {
     }
 
     async clickOnPricingButton() {
-        await browser.waitUntil(async () => {
-            return this.pricingButton.isClickable()
-        })
-
-        this.pricingButton.click();
+        await this.waitForClickableAndClick(this.pricingButton)
     }
 }
 

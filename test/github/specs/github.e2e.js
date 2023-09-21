@@ -6,7 +6,7 @@ import pricingPage from '../pages/pricing.page.js';
 import searchPage from '../pages/search.page.js';
 import signupPage from '../pages/signup.page.js';
 
-describe.only('[case 1] Github signup', () => {
+describe('[case 1] Github signup', () => {
     it('should open main page', async () => {
         await mainPage.openPage();
     });
