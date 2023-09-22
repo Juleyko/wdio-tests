@@ -15,10 +15,6 @@ class SignupPage {
         return $('#opt_in');
     }
 
-    async openPage() {
-        await this.openUrl(this._pageUrl);
-    }
-
     async focusFieldAndEnterValue({ field, value }) {
         await browser.waitUntil(async () => {
             return field.isDisplayed();
